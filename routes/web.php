@@ -17,4 +17,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/hello', function() {
+    return 'Hello world';
+});
+
 Route::get('/hello-world', 'HelloWorldController@hello_world');
+
+Route::get('/date', 'DateController@findDate');
+
+Route::get('/masks-inquiry', 'MasksInquiryController@masksInquiry');
