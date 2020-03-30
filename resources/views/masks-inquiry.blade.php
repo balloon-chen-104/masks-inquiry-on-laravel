@@ -27,9 +27,9 @@
             <tbody>
             @foreach ($recordDatas as $recordData)
                 <tr>
-                    <td>{{ $recordData[0] }}</td>
-                    <td>{{ $recordData[1] }}</td>
-                    <td>{{ $recordData[2] }}</td>
+                    <td>{{ $recordData["醫事機構名稱"] }}</td>
+                    <td>{{ $recordData["醫事機構地址"] }}</td>
+                    <td>{{ $recordData["成人口罩剩餘數"] }}</td>
                 </tr>
             @endforeach
             </tbody>
