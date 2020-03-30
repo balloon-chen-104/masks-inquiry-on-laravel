@@ -1,12 +1,38 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use League\Csv\Reader;
 use League\Csv\Statement;
 
-class MasksInquiryApiController extends Controller {
-    public function masksInquiryApi(Request $request) {
+class MasksInquiryApiController extends Controller
+{
+    /**
+     * @OA\Get(
+     *      path="/api/masks-inquiry-api",
+     *      tags={"MasksInquiry"},
+     *      summary="Get mask datas filter by area",
+     *      description="Return mask datas filter by area",
+     *      @OA\Parameter(
+     *          name="area",
+     *          description="Area to search",
+     *          required=false,
+     *          in="query",
+     *          @OA\Schema(
+     *              type="string"
+     *          )
+     *      ),
+     *      @OA\Response(
+     *          response=200,
+     *          description="Successful operation"
+     *       ),
+     *      @OA\Response(response=400, description="Bad request"),
+     *      @OA\Response(response=404, description="Resource not found"),
+     * )
+     */
+    public function masksInquiryApi(Request $request)
+    {
         $url = "http://data.nhi.gov.tw/Datasets/Download.ashx?rid=A21030000I-D50001-001&l=https://data.nhi.gov.tw/resource/mask/maskdata.csv";
         $fileName = basename($url);
         if (file_put_contents($fileName, file_get_contents($url))) {
@@ -44,8 +70,8 @@ class MasksInquiryApiController extends Controller {
 
         $transCode = [];
         $i = 0;
-        foreach($recordDatas as $recordData){
-            foreach($recordData as $key => $value){
+        foreach ($recordDatas as $recordData) {
+            foreach ($recordData as $key => $value) {
                 $transCode[$i][urlencode($key)] = urlencode($value);
             }
             $i++;
