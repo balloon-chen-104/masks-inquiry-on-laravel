@@ -12,13 +12,13 @@ This project is build in PHP with laravel framework and run on laradock. To inst
 
 ### Installing
 
-After you clone the project, you can enter the root folder and install all packages.
+After you clone the project, you need to enter the root folder and install all packages by composer.
 
 ```
 masks-inquiry-on-laravel$ composer install
 ```
 
-While I call internal api in some of PHP files, you need to edit your environment in your computer, but NOT in the project.
+While we call internal api in some of PHP files, you need to edit your environment in your computer, but NOT in the project.
 
 ```
 masks-inquiry-on-laravel$ sudo vim /etc/hosts
@@ -30,20 +30,26 @@ And add the following rows in the file.
 127.0.0.1 laravel.api
 ```
 
-Next, copy the .env in laradoc.
+Next, copy the .env in laradoc. Your laradoc will use the settings in .env file. By default, we put .env file into .gitignore, so you can put your own environment settings here without leaking your private settings.
 
 ```
 masks-inquiry-on-laravel$ cd laradock
-masks-inquiry-on-laravel/laradoc$ cp env.exemple .env
+masks-inquiry-on-laravel/laradoc$ cp env-example .env
 ```
 
 To run the server on localhost, you need to run the command below.
 
 ```
-masks-inquiry-on-laravel/laradoc$ docker-compose up -d nginx mysql redis workspace 
+masks-inquiry-on-laravel/laradoc$ docker-compose up -d nginx mysql redis workspace
 ```
 
-Well done! You can see the default laravel website on 127.0.0.1
+Well done! You can now see the default laravel website on 127.0.0.1
+
+If you want to shut down the server, run the following command.
+
+```
+masks-inquiry-on-laravel/laradoc$ docker-compose down
+```
 
 ## Usage
 
