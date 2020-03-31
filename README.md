@@ -30,14 +30,21 @@ And add the following rows in the file.
 127.0.0.1 laravel.api
 ```
 
-Next, copy the .env in laradoc. Your laradoc will use the settings in .env file. By default, we put .env file into .gitignore, so you can put your own environment settings here without leaking your private settings.
+Next, copy the .env.example in laravel. Then, generate a key for laravel. By default, we put .env file into .gitignore, so you can put your own environment settings here without leaking your private settings.
+
+```
+masks-inquiry-on-laravel$ cp .env.example .env
+masks-inquiry-on-laravel$ php artisan key:generate
+```
+
+Like what you did in laravel, copy the env-example in laradoc. Your laradoc will use the settings in .env file. By default, we put .env file into .gitignore, so you can put your own environment settings here without leaking your private settings.
 
 ```
 masks-inquiry-on-laravel$ cd laradock
 masks-inquiry-on-laravel/laradoc$ cp env-example .env
 ```
 
-To run the server on localhost, you need to run the command below.
+To run the server on localhost, you need to open the docker application and run the command below.
 
 ```
 masks-inquiry-on-laravel/laradoc$ docker-compose up -d nginx mysql redis workspace
